@@ -1,0 +1,22 @@
+* {
+  font-family: "georgiaregular", sans-serif;
+}
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+#result a {
+  margin: 0;
+  padding: 0;
+  color: black;
+  text-decoration: none;
+}
+#result .content-box {
+  height: 700px;
+}
+#result .content-box .image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=styles.css.map */
