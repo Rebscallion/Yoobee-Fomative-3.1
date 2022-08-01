@@ -31,19 +31,28 @@ let showArticles = (articles) => {
 
 let showSearchResults = (results) => {
     console.log("running");
-    results.forEach((item, index) => {
+    result.innerHTML = "";
+    results.docs.forEach((item, index) => {
+        let checkArticleImage = () => {
+            if (item.multimedia == "") {
+                return "";
+            } else {
+                return "https://static01.nyt.com/" + item.multimedia[39].url;
+            }
+        }
         console.log(item);
-        result.innerHTML == "";
-    //     result.innerHTML += `
-    //     <div class="content-box">
-    //     <div class="bio">
-    //     <h2 class="headline">${docs.headline}</h2>
-    //     <h3 class="byline">${docs.byline.original}</h3>
-    //     <h3 class="abstract">${docs.abstract}</h3>
-    //     <h3 class="date">${docs.pub_date}</h3>
-    //     </div>
-    //     </div>
-        // `;
+        let articleLink = item.web_url;
+        result.innerHTML += `
+        <div class="content-box">
+        <img class="image" src="${checkArticleImage()}" width="100%">
+        <div class="bio">
+        <h2 class="headline">${item.headline.main}</h2>
+        <h3 class="abstract">${item.abstract}</h3>
+        <h3 class="date">${item.pub_date}</h3>
+        <a href="${articleLink}">View Full Article</a>
+        </div>
+        </div>
+        `;
     });
 }
 
