@@ -14,12 +14,20 @@
 </head>
 
 <body>
-    <h1>Formative 3.1</h1>
-    <div id="toolbar">
-        <input type="text" placeholder="Search..." name="search-terms" id="search-terms">
-        <button id="search">Search</button>
+    <div id="header">
+        <img src="/site/img/logo.jpg" alt="" height="80">
+        <h1 id="title">The New New York Times</h1>
+        <div id="display-date"></div>
+        <div id="toolbar">
+            <input type="text" placeholder="Search..." name="search-terms" id="search-terms">
+            <button class="button" id="search">Search <i class="bi bi-search"></i></button>
+        </div>
     </div>
     <div id="result"></div>
+    <footer>
+        <h3><a href="https://developer.nytimes.com/">New York Times API</a></h3>
+
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
