@@ -13,30 +13,54 @@ const todaysDate = document.getElementById('display-date');
 
 todaysDate.innerHTML = date;
 
+const modal = document.querySelector("#modal");
+const body = document.querySelector("body");
+
+const showModal = () => {
+    modal.classList.toggle("hidden");
+    if (!modal.classList.contains("hidden")) {
+        // Disable scroll
+        body.style.overflow = "hidden";
+    } else {
+        // Enable scroll
+        body.style.overflow = "auto";
+    }
+};
+
+const closeBtn = document.getElementById('close-button');
+
+closeBtn.onclick = () => {
+    modal.classList.toggle("hidden");
+    if (!modal.classList.contains("hidden")) {
+        // Disable scroll
+        body.style.overflow = "hidden";
+    } else {
+        // Enable scroll
+        body.style.overflow = "auto";
+    }
+}
+
 let showArticles = (articles) => {
     // console.log("running");
     articles.forEach((item, index) => {
-        // console.log(item);
-        let metadata = item.media[0]['media-metadata'][2].url;
         let articleLink = item.url;
         //display 20 most popular articles
         let checkArticleImage = () => {
-            if (item.metadata == "") {
-                return "https://static01.nyt.com/vi-assets/images/share/1200x675_nameplate.png";
+            if (item.media[0]) {
+                return item.media[0]["media-metadata"][2].url;
             } else {
-                return metadata;
+                return "https://static01.nyt.com/vi-assets/images/share/1200x675_nameplate.png";
             }
         }
         result.innerHTML += `
         <div class="content-box">
-        <img class="image" src="${checkArticleImage()}" width="100%">
+        <img class="image" src="${checkArticleImage()}">
         <div class="bio">
         <h2 class="headline">${item.title}</h2>
         <h3 class="byline">${item.byline}</h3>
         <h3 class="abstract">${item.abstract}</h3>
         <div class="link-container">
         <a class="article-link" href="${articleLink}">View Full Article <i class="bi bi-arrow-right-short"></i></a>
-        <h3 class="date">${item.updated}</h3>
         </div>
         </div>
         </div>
@@ -52,7 +76,7 @@ let showSearchResults = (results) => {
             if (item.multimedia == "") {
                 return "https://static01.nyt.com/vi-assets/images/share/1200x675_nameplate.png";
             } else {
-                return "https://static01.nyt.com/" + item.multimedia[39].url;
+                return "https://static01.nyt.com/" + item.multimedia[33].url;
             }
         }
         console.log(item);
