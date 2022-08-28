@@ -13,10 +13,21 @@ const todaysDate = document.getElementById('display-date');
 
 todaysDate.innerHTML = date;
 
+const nav = document.querySelector("#nav-links");
 const modal = document.querySelector("#modal");
 const body = document.querySelector("body");
 
 console.log("hi");
+
+const openLinks = () => {
+    nav.classList.toggle("hidden");
+    nav.style.height = "150px";
+    nav.style.width = "100vw";
+    nav.style.textAlign = "center";
+    nav.style.backgroundColor = "#567b95";
+    nav.style.zIndex = "50";
+    result.style.marginTop = "170px";
+}
 
 const showModal = () => {
     modal.classList.toggle("hidden");
@@ -125,4 +136,5 @@ searchBtn.onclick = () => {
             console.log(error);
         }
     });
+    
 }

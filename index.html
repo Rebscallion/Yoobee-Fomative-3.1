@@ -15,13 +15,16 @@
 
 <body>
     <div id="header">
-        <img src="/site/img/logo.jpg" alt="" height="80">
+        <img src="/img/logo.jpg" alt="" height="80">
         <h1 id="title">The New New York Times</h1>
         <div id="display-date"></div>
-        <div id="about" onclick="showModal()">About</div>
-        <div id="toolbar">
-            <input type="text" placeholder="Search..." name="search-terms" id="search-terms">
-            <button class="button" id="search">Search <i class="bi bi-search"></i></button>
+        <i id="hamburger-icon" class="bi bi-list" onclick="openLinks()"></i>
+        <div id="nav-links" class="hidden">
+            <div id="about" onclick="showModal()">About</div>
+            <div id="toolbar">
+                <input type="text" placeholder="Search..." name="search-terms" id="search-terms">
+                <button class="button" id="search">Search <i class="bi bi-search"></i></button>
+            </div>
         </div>
     </div>
     <div id="modal" class="hidden">
